@@ -1,0 +1,7 @@
+.mapWrapper {
+  grid-column: 2 / span 3;
+  margin-top: 1em;
+  aspect-ratio: 16 / 9;
+
+  background-color: darkgray;
+}

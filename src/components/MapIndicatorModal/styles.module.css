@@ -1,0 +1,73 @@
+.mapIndicatorModal {
+  background-color: whitesmoke;
+  border-radius: 0.5em;
+  width: 25em;
+  position: absolute;
+  border: 1px solid lightgray;
+  filter: drop-shadow(0.25em 0.5em 10px #666666);
+  bottom: -7em;
+  left: -12.5em;
+  transform: scale(0);
+  transition: all 200ms;
+  z-index: 3;
+}
+
+.mapIndicatorModal::after {
+  content: '';
+  height: 2em;
+  width: 2em;
+  position: absolute;
+  bottom: -1.07em;
+  left: 11.38em;
+  background-color: whitesmoke;
+  transform: rotate(45deg);
+  border-bottom-right-radius: 3px;
+  border-bottom: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  z-index: -1;
+}
+
+.mapIndicatorModal.selected {
+  bottom: 5em;
+  left: -12.5em;
+  transform: scale(1);
+}
+
+.carouselWrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 60%;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.carouselImageWrapper {
+  height: 12em;
+}
+
+.carouselImageWrapper img {
+  width: auto;
+}
+
+.textWrapper {
+  padding: 1em;
+}
+
+.title {
+  margin: 0.75em 0;
+  font-weight: 800;
+}
+
+.address {
+  font-size: 12px;
+  color: gray;
+  margin: 1em 0;
+  display: block;
+  line-height: 1.1em;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.5em;
+}
+

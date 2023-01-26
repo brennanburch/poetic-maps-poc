@@ -1,0 +1,13 @@
+.wrapper {
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.wrapper p {
+  font-size: 72px;
+  font-weight: 1000;
+  color: gray;
+}

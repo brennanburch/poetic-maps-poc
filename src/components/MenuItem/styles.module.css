@@ -1,0 +1,39 @@
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 200ms
+}
+
+.menuItem:hover {
+  background-color: whitesmoke;
+}
+
+.menuItem.selected {
+  background-color: lightgray;
+}
+
+.menuItem img {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.menuItem span {
+  margin-left: 0.5em;
+  font-size: 0.8em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.menuItem em {
+  font-weight: 600;
+  font-style: normal;
+  text-overflow: clip;
+}
+
+.truncate {
+  text-overflow: ellipsis;
+}

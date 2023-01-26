@@ -1,11 +1,43 @@
+import { Dispatch, SetStateAction } from 'react';
+
 import styles from './styles.module.css';
 
-const MenutItem = () => {
+interface Props {
+  name: string;
+  indicatorImageSider: {
+    url: string;
+    alt: string | null;
+  };
+  selected: boolean;
+  setSelectedPOI: Dispatch<SetStateAction<string | undefined>>;
+  slug: string;
+  address: string | null;
+}
+
+const MenuItem = ({
+  name,
+  indicatorImageSider: { url, alt },
+  selected,
+  setSelectedPOI,
+  slug,
+  address,
+}: Props) => {
+  const clickHandler = () => {
+    setSelectedPOI(slug);
+  };
+
   return (
-    <div className={styles.menuItem}>
-      <h2>Menu Item</h2>
-    </div>
+    <li
+      className={[styles.menuItem, selected ? styles.selected : null].join(' ')}
+      onClick={clickHandler}
+    >
+      <img src={url} alt={alt ? alt : undefined} />
+      <span>
+        <em>{name}</em>
+      </span>
+      {address ? <span className={styles.truncate}>{address}</span> : null}
+    </li>
   );
 };
 
-export default MenutItem;
+export default MenuItem;

@@ -1,8 +1,9 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { GoogleMap, OverlayView, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, OverlayViewF, useJsApiLoader } from '@react-google-maps/api';
 import { MapIndicator } from '../';
 
 import { MapData, POI } from '../LogicController';
+import config from '../../config';
 
 import styles from './styles.module.css';
 
@@ -19,7 +20,7 @@ const MapController = ({
 }: Props) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_KEY as string,
+    googleMapsApiKey: config.googleMapsApiKey,
   });
 
   const options = {
@@ -72,6 +73,7 @@ const MapController = ({
   const panTo = ({ lat, lng }: { lat: number; lng: number }) => {
     if (isLoaded && map) {
       map.panTo({ lat, lng });
+      map.panBy(0, -250);
     }
   };
 
@@ -95,7 +97,7 @@ const MapController = ({
       {poi.map(({ slug, lat, lng }, index) => {
         return (
           <span key={slug} onClick={() => panTo({ lat, lng })}>
-            <OverlayView mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET} position={{ lat, lng }}>
+            <OverlayViewF mapPaneName={'overlayMouseTarget'} position={{ lat, lng }}>
               <MapIndicator
                 {...{
                   selected: selectedPOI === slug,
@@ -103,7 +105,7 @@ const MapController = ({
                   poi: poi[index],
                 }}
               />
-            </OverlayView>
+            </OverlayViewF>
           </span>
         );
       })}

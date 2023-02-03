@@ -1,15 +1,7 @@
 .mapIndicatorModal {
-  background-color: whitesmoke;
-  border-radius: 0.5em;
-  width: 25em;
   position: absolute;
-  border: 1px solid lightgray;
-  filter: drop-shadow(0.25em 0.5em 10px #666666);
-  bottom: -7em;
-  left: -12.5em;
-  transform: scale(0);
-  transition: all 200ms;
-  z-index: 3;
+  display: none;
+  cursor: default;
 }
 
 .mapIndicatorModal::after {
@@ -28,9 +20,37 @@
 }
 
 .mapIndicatorModal.selected {
-  bottom: 5em;
-  left: -12.5em;
-  transform: scale(1);
+  width: 25em;
+  background-color: whitesmoke;
+  border-radius: 0.5em;
+  border: 1px solid lightgray;
+  filter: drop-shadow(0.25em 0.5em 10px #666666);
+  z-index: 3;
+  animation-name: popup;
+  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+  display: block;
+}
+
+@keyframes popup {
+  0% {
+    display: none;
+    transform: scale(0);
+    bottom: -7em;
+    left: -12.5em;
+  }
+  1% {
+    display: block;
+    transform: scale(0);
+    bottom: -7em;
+    left: -12.5em;
+  }
+  100% {
+    bottom: 5em;
+    left: -12.5em;
+    transform: scale(1);
+  }
 }
 
 .carouselWrapper {
@@ -70,4 +90,3 @@
   font-size: 14px;
   line-height: 1.5em;
 }
-

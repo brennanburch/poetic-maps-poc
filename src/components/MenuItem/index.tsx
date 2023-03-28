@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction } from 'react';
-
 import styles from './styles.module.css';
 
 interface Props {
@@ -20,7 +19,6 @@ const MenuItem = ({
   selected,
   setSelectedPOI,
   slug,
-  address,
 }: Props) => {
   const clickHandler = () => {
     setSelectedPOI(slug);
@@ -35,7 +33,6 @@ const MenuItem = ({
       <span>
         <em>{name}</em>
       </span>
-      {address ? <span className={styles.truncate}>{address}</span> : null}
     </li>
   );
 };

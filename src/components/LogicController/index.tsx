@@ -1,10 +1,10 @@
+/* eslint-disable sort-imports */
+import { Error, LoadingSpinner, MapController, Menu } from '../';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-
-import { Error, LoadingSpinner, MapController, Menu } from '../';
 import mapsQuery from '../../queries';
-
+import MobileMenu from '../MobileMenu';
 import styles from './styles.module.css';
 
 export type MapDataImage = {
@@ -58,13 +58,17 @@ const LogicController = () => {
   if (isError) return <Error error={error} />;
 
   const mapData = data.data as MapData;
-  const { css, 'primary-color': primaryColor } = mapData;
+  const { css, 'primary-color': primaryColor, 'secondary-color': secondaryColor } = mapData;
 
   return (
     <>
       {css ? <style>{css}</style> : null}
-      <div className={styles.wrapper} style={{ backgroundColor: primaryColor }}>
+      <div
+        className={styles.wrapper}
+        style={{ backgroundColor: primaryColor, color: secondaryColor }}
+      >
         <Menu {...{ mapData, selectedPOI, setSelectedPOI }} />
+        <MobileMenu {...{ mapData, selectedPOI, setSelectedPOI }} />
         <MapController {...{ mapData, selectedPOI, setSelectedPOI }} />
       </div>
     </>

@@ -1,12 +1,15 @@
-.mapIndicator, .selected {
+.mapIndicator,
+.selected {
   position: relative;
   cursor: pointer;
+  color:#000;
+  
 }
 
 .mapIndicator h2 {
   position: absolute;
   top: -2em;
-  left: 1.5em;
+  left: 3em;
   width: fit-content;
   white-space: nowrap;
   display: none;
@@ -24,11 +27,14 @@
   top: -2em;
   transition: all 200ms;
   transform: scale(1);
+  border-radius: 20px;
+  
 }
 
-.mapIndicator:hover .indicatorImage, .mapIndicator.selected .indicatorImage {
+.mapIndicator:hover .indicatorImage,
+.mapIndicator.selected .indicatorImage {
   filter: drop-shadow(0.25em 0.5em 10px #666666);
-  top: -2.25em
+  top: -2.25em;
 }
 
 .mapIndicator.selected .indicatorImage {

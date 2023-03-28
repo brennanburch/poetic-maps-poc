@@ -1,10 +1,8 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { GoogleMap, OverlayViewF, useJsApiLoader } from '@react-google-maps/api';
-import { MapIndicator } from '../';
-
 import { MapData, POI } from '../LogicController';
+import { MapIndicator } from '../';
 import config from '../../config';
-
 import styles from './styles.module.css';
 
 interface Props {
@@ -73,7 +71,7 @@ const MapController = ({
   const panTo = ({ lat, lng }: { lat: number; lng: number }) => {
     if (isLoaded && map) {
       map.panTo({ lat, lng });
-      map.panBy(0, -250);
+      map.panBy(-100, -150);
     }
   };
 

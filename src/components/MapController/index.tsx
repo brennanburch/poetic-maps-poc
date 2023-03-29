@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { GoogleMap, OverlayViewF, useJsApiLoader } from '@react-google-maps/api';
+
 import { MapData, POI } from '../LogicController';
 import { MapIndicator } from '../';
 import config from '../../config';

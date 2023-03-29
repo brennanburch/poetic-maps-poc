@@ -1,10 +1,10 @@
-/* eslint-disable sort-imports */
-import { Error, LoadingSpinner, MapController, Menu } from '../';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import mapsQuery from '../../queries';
+
+import { Error, LoadingSpinner, MapController, Menu } from '../';
 import MobileMenu from '../MobileMenu';
+import mapsQuery from '../../queries';
 import styles from './styles.module.css';
 
 export type MapDataImage = {

@@ -1,7 +1,7 @@
-/* eslint-disable sort-imports */
 import { Dispatch, SetStateAction } from 'react';
-import { MenuItem } from '../';
+
 import type { MapData } from '../LogicController';
+import { MenuItem } from '../';
 import styles from './styles.module.css';
 
 interface Props {

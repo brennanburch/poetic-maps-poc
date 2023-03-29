@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useState } from 'react';
-import { AiOutlineCloseCircle } from 'react-icons/Ai';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { BiMenu } from 'react-icons/bi';
 
 import type { MapData } from '../LogicController';

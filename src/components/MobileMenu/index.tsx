@@ -1,9 +1,9 @@
-/* eslint-disable sort-imports */
 import { Dispatch, SetStateAction, useState } from 'react';
-import { BiMenu } from 'react-icons/bi';
 import { AiOutlineCloseCircle } from 'react-icons/Ai';
-import { MenuItem } from '..';
+import { BiMenu } from 'react-icons/bi';
+
 import type { MapData } from '../LogicController';
+import { MenuItem } from '..';
 import styles from './styles.module.css';
 
 interface Props {
@@ -14,16 +14,19 @@ interface Props {
 
 const MobileMenu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
   const [open, setOpen] = useState(false);
-  const hamburgerIcon = <BiMenu size="40px" onClick={() => setOpen(!open)} />;
-  const closeIcon = <AiOutlineCloseCircle size="40px" onClick={() => setOpen(!open)} />;
   const closeMobileMenu = () => setOpen(false);
+
   const { css, 'primary-color': primaryColor, 'secondary-color': secondaryColor } = mapData;
 
   return (
     <>
       {css ? <style>{css}</style> : null}
       <div className={styles.menu}>
-        {open ? closeIcon : hamburgerIcon}
+        {open ? (
+          <AiOutlineCloseCircle size="40px" onClick={() => setOpen(!open)} />
+        ) : (
+          <BiMenu size="40px" onClick={() => setOpen(!open)} />
+        )}
 
         {open && (
           <div className={styles.listContainer}>

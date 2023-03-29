@@ -1,4 +1,13 @@
 .wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  container-type: inline-size;
+}
+
+@container (width < 990px) {
+  .wrapper {
+    display: f;
+    grid-template-columns: repeat(1, 1fr);
+    max-height:100%;
+  }
 }

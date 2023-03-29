@@ -6,3 +6,4 @@ export { default as MapIndicator } from './MapIndicator';
 export { default as MapIndicatorModal } from './MapIndicatorModal';
 export { default as Menu } from './Menu';
 export { default as MenuItem } from './MenuItem';
+export { default as MobileMenu } from './MobileMenu';

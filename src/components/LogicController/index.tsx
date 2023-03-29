@@ -2,8 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 
-import { Error, LoadingSpinner, MapController, Menu } from '../';
-import MobileMenu from '../MobileMenu';
+import { Error, LoadingSpinner, MapController, Menu, MobileMenu } from '../';
 import mapsQuery from '../../queries';
 import styles from './styles.module.css';
 

@@ -16,7 +16,6 @@ const MapIndicator = ({ selected, setSelectedPOI, poi }: Props) => {
     slug,
     name,
     'indicator-image-map': { url, alt },
-    // 'indicator-template': indicatorTemplate,
   } = poi;
 
   return (

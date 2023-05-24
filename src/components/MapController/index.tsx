@@ -92,7 +92,6 @@ const MapController = ({
       onLoad={(map) => setMap(map)}
       {...{ options, center, zoom }}
     >
-      {/* render map of indicators */}
       {poi.map(({ slug, lat, lng }, index) => {
         return (
           <span key={slug} onClick={() => panTo({ lat, lng })}>

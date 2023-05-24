@@ -166,7 +166,7 @@
 
 @container (width <568px){
   .mapIndicatorModal.selected {
-    width: auto; 
+    width: 12em; 
     background-color: whitesmoke;
     border-radius: 0.5em;
     border: 1px solid lightgray;
@@ -186,7 +186,7 @@
     width: 2em;
     position: absolute;
     bottom: -1.07em;
-    left: 8em;
+    left: 9em;
     background-color: whitesmoke;
     transform: rotate(45deg);
     border-bottom-right-radius: 3px;

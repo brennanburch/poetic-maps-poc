@@ -72,7 +72,7 @@ const MapController = ({
   const panTo = ({ lat, lng }: { lat: number; lng: number }) => {
     if (isLoaded && map) {
       map.panTo({ lat, lng });
-      map.panBy(-100, -150);
+      map.panBy(-100, -100);
     }
   };
 

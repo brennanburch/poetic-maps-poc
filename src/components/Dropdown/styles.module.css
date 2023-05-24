@@ -1,0 +1,48 @@
+.dropdown{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+    background-color: transparent;
+    border:none;
+    
+}
+
+.select{
+    display: flex;
+    justify-content: space-between;
+
+}
+.content {
+    overflow: hidden;
+    max-height: 0;
+    font-weight: 100;
+    transition: max-height 0.5s ease-in-out;
+    padding:16px;
+ 
+    width:80%;
+}
+
+.collapsed{
+    .content {
+        display: flex;
+        margin: auto;
+        max-height: 500px;
+        white-space: break-spaces;
+      
+        font-weight: 100;
+
+    }
+}
+
+.expanded {
+    .content {
+        display: flex;
+        flex-direction: column;
+        max-height: 500px;
+        white-space: break-spaces;
+  
+        font-weight: 300;
+
+    }
+}

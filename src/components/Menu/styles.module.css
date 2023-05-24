@@ -2,7 +2,10 @@
   grid-column: 1 / span 1;
   overflow: hidden;
   container-type: inline-size;
-  padding-top:2em;
+}
+
+.menuIcon {
+  margin: 10px;
 }
 
 .menu h1 {
@@ -10,7 +13,6 @@
   font-weight: 1000;
   margin-bottom: 1em;
   padding: 0.75em 0.75em 0;
-
 }
 
 .menu h2 {
@@ -19,37 +21,58 @@
   padding: 0 1em;
 }
 
-@container (width < 990px)
-  {.menu {
+.mobileDropdown {
+  animation: dropdownOpening 500ms;
+  max-height: 300px;
+}
+
+.mobileDropdownClosed {
+  max-height: 0px;
+  margin: 0 10px !important;
+  transition: all 50ms;
+  overflow: hidden;
+}
+
+@keyframes dropdownOpening {
+  from {
+    max-height: 0px;
+  }
+
+  to {
+    max-height: 300px;
+  }
+}
+
+@container (width < 990px) {
+  .menu {
     grid-column: 1 / span 4;
     overflow: hidden;
     padding-top: 0em;
     overflow: visible;
     display: column;
     align-items: top;
+    justify-conter: center;
     cursor: pointer;
-    display: none;
-    z-index:999;
-    transition: height .4s ease;
-    
-    
+    z-index: 999;
+    transition: height 0.4s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: max-content;
   }
 
-
-  .listContainer{
-    padding-top:20px;
-    max-width:100%;
-    justify-content:flex-start;
-    background:transparent;
-    margin:20px;
+  .listContainer {
+    padding-top: 20px;
+    max-width: 100%;
+    justify-content: flex-start;
+    background: transparent;
+    margin: 20px;
   }
 
-  .button{
-    background:transparent;
-    width:100%;
-    border:none;
+  .button {
+    background: transparent;
+    width: 100%;
+    border: none;
   }
- 
-
-
 }

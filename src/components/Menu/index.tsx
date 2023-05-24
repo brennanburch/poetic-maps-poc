@@ -1,7 +1,11 @@
-import { Dispatch, SetStateAction } from 'react';
-import Dropdown from '../Dropdown';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { BiMenu } from 'react-icons/bi';
+import { Dropdown } from '../';
 import type { MapData } from '../LogicController';
+
 import { MenuItem } from '../';
+
 import styles from './styles.module.css';
 
 interface Props {
@@ -12,42 +16,76 @@ interface Props {
 const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
   const categories: Array<string> = [];
   mapData.poi.forEach(({ category }) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     if (!categories.includes(category)) categories.push(category);
   });
 
-  const { css, 'primary-color': primaryColor, 'secondary-color': secondaryColor } = mapData;
+  const { 'primary-color': primaryColor } = mapData;
+
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  const isMobile = innerWidth <= 990;
+
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const handleOpenToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setInnerWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
-    <>
-      {css ? <style>{css}</style> : null}
-
-      <ul className={styles.menu}>
-        {categories.map((category) => {
-          return (
-            <Dropdown key={category} category={category}>
-              {mapData.poi
-                .filter(({ category: poiCategory }) => poiCategory === category)
-                .map(({ name, slug, 'indicator-image-sider': indicatorImageSider, address }) => {
-                  return (
-                    <MenuItem
-                      key={slug}
-                      {...{
-                        name,
-                        indicatorImageSider,
-                        selected: selectedPOI === slug ? true : false,
-                        setSelectedPOI,
-                        slug,
-                        address,
-                      }}
-                    />
-                  );
-                })}
-            </Dropdown>
-          );
-        })}
-      </ul>
-    </>
+    <ul className={styles.menu} style={{ backgroundColor: primaryColor }}>
+      {isMobile ? (
+        mobileOpen ? (
+          <AiOutlineCloseCircle
+            className={styles.menuIcon}
+            size="40px"
+            onClick={handleOpenToggle}
+          />
+        ) : (
+          <BiMenu className={styles.menuIcon} size="40px" onClick={handleOpenToggle} />
+        )
+      ) : null}
+      {categories.map((category) => {
+        return (
+          <Dropdown
+            className={
+              isMobile && mobileOpen
+                ? styles.mobileDropdown
+                : isMobile && !mobileOpen
+                ? styles.mobileDropdownClosed
+                : null
+            }
+            key={category}
+            category={category}
+          >
+            {mapData.poi
+              .filter(({ category: poiCategory }) => poiCategory === category)
+              .map(({ name, slug, 'indicator-image-sider': indicatorImageSider, address }) => {
+                return (
+                  <MenuItem
+                    key={slug}
+                    {...{
+                      name,
+                      indicatorImageSider,
+                      selected: selectedPOI === slug ? true : false,
+                      setSelectedPOI,
+                      slug,
+                      address,
+                    }}
+                  />
+                );
+              })}
+          </Dropdown>
+        );
+      })}
+    </ul>
   );
 };
 

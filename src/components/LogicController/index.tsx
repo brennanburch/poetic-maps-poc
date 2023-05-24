@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 
-import { Error, LoadingSpinner, MapController, Menu, MobileMenu } from '../';
+import { Error, LoadingSpinner, MapController, Menu } from '../';
 import mapsQuery from '../../queries';
 import styles from './styles.module.css';
 
@@ -22,6 +22,7 @@ export type POI = {
   'modal-images': MapDataImage[];
   name: string;
   slug: string;
+  category: string;
 };
 
 export type MapData = {
@@ -67,7 +68,6 @@ const LogicController = () => {
         style={{ backgroundColor: primaryColor, color: secondaryColor }}
       >
         <Menu {...{ mapData, selectedPOI, setSelectedPOI }} />
-        <MobileMenu {...{ mapData, selectedPOI, setSelectedPOI }} />
         <MapController {...{ mapData, selectedPOI, setSelectedPOI }} />
       </div>
     </>

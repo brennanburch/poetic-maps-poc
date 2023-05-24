@@ -31,7 +31,7 @@
   animation-fill-mode: forwards;
   animation-timing-function: ease;
   display: block;
-  container-type:inline;
+  container-type: inline;
 }
 
 @keyframes popup {
@@ -90,10 +90,10 @@
 .description {
   font-size: 14px;
   line-height: 1.5em;
-  color:#000;
+  color: #000;
 }
 
-@container (width <990px){
+@container (width <990px) {
   .mapIndicatorModal.selected {
     width: 16em;
     background-color: whitesmoke;
@@ -106,7 +106,6 @@
     animation-fill-mode: forwards;
     animation-timing-function: ease;
     display: block;
-   
   }
   .mapIndicatorModal::after {
     content: '';
@@ -114,8 +113,8 @@
     width: 2em;
     position: absolute;
     bottom: -1.07em;
-    left:20  em;
-    
+    left: 20 em;
+
     background-color: whitesmoke;
     transform: rotate(45deg);
     border-bottom-right-radius: 3px;
@@ -124,49 +123,49 @@
     z-index: -1;
   }
 
-.carouselWrapper {
-  overflow: hidden;
-  width: 100%;
-  height: 30%;
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
+  .carouselWrapper {
+    overflow: hidden;
+    width: 100%;
+    height: 30%;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+  }
+
+  .carouselImageWrapper {
+    height: 6em;
+  }
+
+  .carouselImageWrapper img {
+    width: auto;
+  }
+
+  .textWrapper {
+    padding: 1em;
+  }
+
+  .title {
+    margin: 0.75em 0;
+    font-weight: 800;
+    font-size: 12px;
+  }
+
+  .address {
+    font-size: 10px;
+    color: gray;
+    margin: 1em 0;
+    display: block;
+    line-height: 1.1em;
+  }
+
+  .description {
+    font-size: 10px;
+    line-height: 1.5em;
+  }
 }
 
-.carouselImageWrapper {
-  height: 6em;
-}
-
-.carouselImageWrapper img {
-  width: auto;
-}
-
-.textWrapper {
-  padding: 1em;
-}
-
-.title {
-  margin: 0.75em 0;
-  font-weight: 800;
-  font-size:12px;
-}
-
-.address {
-  font-size: 10px;
-  color: gray;
-  margin: 1em 0;
-  display: block;
-  line-height: 1.1em;
-}
-
-.description {
-  font-size: 10px;
-  line-height: 1.5em;
-}
-}
-
-@container (width <568px){
+@container (width <568px) {
   .mapIndicatorModal.selected {
-    width: 12em; 
+    width: 12em;
     background-color: whitesmoke;
     border-radius: 0.5em;
     border: 1px solid lightgray;
@@ -177,8 +176,6 @@
     animation-fill-mode: forwards;
     animation-timing-function: ease;
     display: block;
-    
-   
   }
   .mapIndicatorModal::after {
     content: '';
@@ -195,42 +192,42 @@
     z-index: -1;
   }
 
-.carouselWrapper {
-  overflow: hidden;
-  width: 100%;
-  height: 30%;
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
-  display:none;
-}
+  .carouselWrapper {
+    overflow: hidden;
+    width: 100%;
+    height: 30%;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    display: none;
+  }
 
-.carouselImageWrapper {
-  height: 10em;
-}
+  .carouselImageWrapper {
+    height: 10em;
+  }
 
-.carouselImageWrapper img {
-  width: auto;
-}
+  .carouselImageWrapper img {
+    width: auto;
+  }
 
-.textWrapper {
-  padding: 1em;
-}
+  .textWrapper {
+    padding: 1em;
+  }
 
-.title {
-  margin: 0.75em 0;
-  font-weight: 800;
-}
+  .title {
+    margin: 0.75em 0;
+    font-weight: 800;
+  }
 
-.address {
-  font-size: 12px;
-  color: gray;
-  margin: 1em 0;
-  display: block;
-  line-height: 1.1em;
-}
+  .address {
+    font-size: 12px;
+    color: gray;
+    margin: 1em 0;
+    display: block;
+    line-height: 1.1em;
+  }
 
-.description {
-  font-size: 10px;
-  line-height: 1.5em;
-}
+  .description {
+    font-size: 10px;
+    line-height: 1.5em;
+  }
 }

@@ -2,8 +2,7 @@
 .selected {
   position: relative;
   cursor: pointer;
-  color:#000;
-  
+  color: #000;
 }
 
 .mapIndicator h2 {
@@ -28,7 +27,6 @@
   transition: all 200ms;
   transform: scale(1);
   border-radius: 20px;
-  
 }
 
 .mapIndicator:hover .indicatorImage,

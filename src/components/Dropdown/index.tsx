@@ -1,23 +1,26 @@
-import type { MapData } from '../LogicController';
 import styles from './styles.module.css';
-
 import { useState } from 'react';
 
-// eslint-disable-next-line react/prop-types
-const Dropdown = ({ category, children }) => {
-  const [toggle, setToggle] = useState(false);
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+interface Props {
+  category: string;
+  children: string | JSX.Element | JSX.Element[];
+  className: string | null;
+}
+
+const Dropdown = ({ category, children, className }: Props) => {
+  const [toggle, setToggle] = useState(true);
+  const handleToggle = () => {
+    console.log('toggled');
+    setToggle(!toggle);
+  };
 
   return (
-    <>
-      <div className={styles.dropdown}>
-        <button onClick={() => setToggle(!toggle)} className={styles.dropdown}>
-          <label>{category}</label>
-
-          {toggle && <ul className={styles.expanded}>{children}</ul>}
-        </button>
-      </div>
-    </>
+    <div className={[styles.dropdown, 'dropdown', className].join(' ')}>
+      <label onClick={handleToggle}>{category}</label>
+      <ul className={[styles.expanded, toggle ? styles.dropdownActive : null].join(' ')}>
+        {children}
+      </ul>
+    </div>
   );
 };
 

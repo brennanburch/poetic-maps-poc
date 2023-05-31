@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Dropdown = ({ category, children, className }: Props) => {
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
   const handleToggle = () => {
     console.log('toggled');
     setToggle(!toggle);

@@ -1,3 +1,20 @@
+a {
+  color: black;
+}
+
+button{
+  margin:auto;
+  width:auto;
+  padding:4px;
+}
+.bottomContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:4px;
+  
+  
+}
 .mapIndicatorModal {
   position: absolute;
   display: none;

@@ -23,6 +23,9 @@ export type POI = {
   name: string;
   slug: string;
   category: string;
+  'title-link'?: string | null;
+  'cta-text'?: string | null;
+  'cta-link'?: string | null;
 };
 
 export type MapData = {

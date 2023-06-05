@@ -4,16 +4,51 @@
   flex-direction: column;
   border: none;
   height: fit-content;
-  margin: 10px;
+  margin: 1em;
+}
+
+.dropdownHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+}
+
+.expanded {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 1em;
 }
 
 .expanded li {
   max-height: 0px;
+  height: 3em;
+  overflow-y: hidden;
   padding: 0 3em;
   transition: all 50ms;
+  grid-column: span 1;
+}
+
+.dropdownActive li {
+  margin: 1em 0;
 }
 
 .dropdownActive li {
   max-height: 100vh;
-  padding: 0.5em 3em;
+  padding: 0.5em 1em;
+}
+
+.showHide {
+  cursor: pointer;
+}
+
+.showHide span {
+  display: inline;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

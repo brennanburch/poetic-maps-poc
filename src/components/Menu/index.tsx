@@ -19,7 +19,7 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
     if (!categories.includes(category)) categories.push(category);
   });
 
-  const { 'primary-color': primaryColor } = mapData;
+  const { 'primary-color': primaryColor, 'secondary-color': secondaryColor } = mapData;
 
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   const isMobile = innerWidth <= 990;
@@ -64,6 +64,7 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
             }
             key={category}
             category={category}
+            {...{ primaryColor, secondaryColor }}
           >
             {mapData.poi
               .filter(({ category: poiCategory }) => poiCategory === category)

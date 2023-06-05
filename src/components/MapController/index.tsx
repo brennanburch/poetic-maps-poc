@@ -4,6 +4,8 @@ import { GoogleMap, OverlayViewF, useJsApiLoader } from '@react-google-maps/api'
 import { MapData, POI } from '../LogicController';
 import { MapIndicator } from '../';
 import config from '../../config';
+import mapStyles from '../../mapStyles';
+
 import styles from './styles.module.css';
 
 interface Props {
@@ -13,7 +15,7 @@ interface Props {
 }
 
 const MapController = ({
-  mapData: { poi, center, 'zoom-level': zoom },
+  mapData: { poi, center, 'zoom-level': zoom, 'map-color-style': mapStyle = 'default' },
   selectedPOI,
   setSelectedPOI,
 }: Props) => {
@@ -64,6 +66,7 @@ const MapController = ({
           },
         ],
       },
+      ...mapStyles[mapStyle],
     ],
   };
 

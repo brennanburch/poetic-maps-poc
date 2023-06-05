@@ -43,6 +43,7 @@ export type MapData = {
   'sider-template': string | null;
   slug: string;
   'style-template': string;
+  'map-color-style': string | undefined;
   subtitle: string;
   title: string;
   'zoom-level': number;

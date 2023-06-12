@@ -9,9 +9,11 @@ interface Props {
   selected: boolean;
   setSelectedPOI: Dispatch<SetStateAction<string | undefined>>;
   poi: POI;
+  primaryColor: string;
+  secondaryColor: string;
 }
 
-const MapIndicator = ({ selected, setSelectedPOI, poi }: Props) => {
+const MapIndicator = ({ selected, setSelectedPOI, poi, primaryColor, secondaryColor }: Props) => {
   const {
     slug,
     name,
@@ -25,7 +27,7 @@ const MapIndicator = ({ selected, setSelectedPOI, poi }: Props) => {
     >
       <h2>{name}</h2>
       <img className={styles.indicatorImage} src={url} alt={alt ? alt : undefined} />
-      <MapIndicatorModal {...{ selected, poi }} />
+      <MapIndicatorModal {...{ selected, poi, primaryColor, secondaryColor }} />
     </span>
   );
 };

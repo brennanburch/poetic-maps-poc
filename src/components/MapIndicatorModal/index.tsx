@@ -6,6 +6,8 @@ import styles from './styles.module.css';
 interface Props {
   selected: boolean;
   poi: POI;
+  primaryColor: string;
+  secondaryColor: string;
 }
 
 const MapIndicatorModal = ({
@@ -19,8 +21,9 @@ const MapIndicatorModal = ({
     'cta-link': ctaLink,
     'cta-text': ctaText,
   },
+  // primaryColor,
+  secondaryColor,
 }: Props) => {
-  console.log('modal-images', modalImages);
   return (
     <div className={[styles.mapIndicatorModal, selected ? styles.selected : null].join(' ')}>
       {modalImages && modalImages.length > 0 ? (
@@ -55,7 +58,12 @@ const MapIndicatorModal = ({
       <div className={styles.bottomContainer}>
         {ctaLink ? (
           <a href={ctaLink} target="_blank" rel="noreferrer">
-            <button>{ctaText ? ctaText : 'Visit Site'}</button>
+            <button
+              className={[styles.ctaLink, 'cta-link-button'].join(' ')}
+              style={{ backgroundColor: secondaryColor }}
+            >
+              {ctaText ? ctaText : 'Visit Site'}
+            </button>
           </a>
         ) : null}
       </div>

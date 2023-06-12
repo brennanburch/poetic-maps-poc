@@ -44,9 +44,9 @@ const Dropdown = ({
           </span>
         </div>
       </div>
-      <ul className={[styles.expanded, toggle ? styles.dropdownActive : null].join(' ')}>
-        {children}
-      </ul>
+      <div className={[styles.expandableSection, toggle ? styles.active : null].join(' ')}>
+        <ul className={[styles.items].join(' ')}>{children}</ul>
+      </div>
     </div>
   );
 };

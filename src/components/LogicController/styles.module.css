@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   container-type: inline-size;
+  overflow: hidden;
 }
 
 @container (width < 990px) {

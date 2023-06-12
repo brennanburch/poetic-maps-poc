@@ -12,10 +12,14 @@ interface Props {
   mapData: MapData;
   selectedPOI: string | undefined;
   setSelectedPOI: Dispatch<SetStateAction<string | undefined>>;
+  primaryColor: string;
+  secondaryColor: string;
 }
 
 const MapController = ({
   mapData: { poi, lat, lng, 'zoom-level': zoom, 'map-color-style': mapStyle = 'default' },
+  primaryColor,
+  secondaryColor,
   selectedPOI,
   setSelectedPOI,
 }: Props) => {
@@ -107,6 +111,8 @@ const MapController = ({
                   selected: selectedPOI === slug,
                   setSelectedPOI,
                   poi: poi[index],
+                  primaryColor,
+                  secondaryColor,
                 }}
               />
             </OverlayViewF>

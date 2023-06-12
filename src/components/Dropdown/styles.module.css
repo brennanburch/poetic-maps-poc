@@ -48,3 +48,9 @@
   grid-template-rows: 1fr;
   margin-top: 1em;
 }
+
+@container (width <= 490px) {
+  .items {
+    grid-template-columns: 1fr;
+  }
+}

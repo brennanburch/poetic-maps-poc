@@ -28,6 +28,9 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
   const handleOpenToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+  const handleCloseMobile = () => {
+    setMobileOpen(false);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,7 +43,7 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
   }, []);
 
   return (
-    <ul className={styles.menu} style={{ backgroundColor: primaryColor }}>
+    <nav className={styles.menu} style={{ backgroundColor: primaryColor }}>
       {isMobile ? (
         mobileOpen ? (
           <AiOutlineCloseCircle
@@ -79,6 +82,7 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
                       setSelectedPOI,
                       slug,
                       address,
+                      handleCloseMobile,
                     }}
                   />
                 );
@@ -86,7 +90,7 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
           </Dropdown>
         );
       })}
-    </ul>
+    </nav>
   );
 };
 

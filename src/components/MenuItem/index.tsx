@@ -12,6 +12,7 @@ interface Props {
   setSelectedPOI: Dispatch<SetStateAction<string | undefined>>;
   slug: string;
   address: string | null;
+  handleCloseMobile: () => void;
 }
 
 const MenuItem = ({
@@ -20,9 +21,11 @@ const MenuItem = ({
   selected,
   setSelectedPOI,
   slug,
+  handleCloseMobile,
 }: Props) => {
   const clickHandler = () => {
     setSelectedPOI(slug);
+    handleCloseMobile();
   };
 
   return (

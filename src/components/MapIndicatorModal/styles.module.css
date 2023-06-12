@@ -110,6 +110,13 @@ button{
   color: #000;
 }
 
+.ctaLink {
+  border: none;
+  padding: 0.75em;
+  margin: 1em;
+  border-radius: 2px;
+}
+
 @container (width <990px) {
   .mapIndicatorModal.selected {
     width: 16em;

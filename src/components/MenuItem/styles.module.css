@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0.5em 1em;
   cursor: pointer;
   overflow: hidden;
   transition: all 200ms;
@@ -11,6 +10,8 @@
   border-left-style: solid;
   border-left-width: 3px;
   background-color: rgba(30, 30, 30, 0.1);
+  overflow-y: hidden;
+  padding: 0.5em 1em;
 }
 
 .menuItem:hover {

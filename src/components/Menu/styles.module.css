@@ -1,6 +1,5 @@
 .menu {
-  grid-column: 1 / span 1;
-  overflow: hidden;
+  grid-column: 2 / span 1;
   container-type: inline-size;
 }
 
@@ -43,7 +42,7 @@
   }
 }
 
-@container (width < 990px) {
+@container (width <= 990px) {
   .menu {
     grid-column: 1 / span 4;
     overflow: hidden;

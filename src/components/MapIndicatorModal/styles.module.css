@@ -117,7 +117,7 @@ button{
   border-radius: 2px;
 }
 
-@container (width <990px) {
+@container (width <= 990px) {
   .mapIndicatorModal.selected {
     width: 16em;
     background-color: whitesmoke;

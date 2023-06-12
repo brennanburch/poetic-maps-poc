@@ -17,8 +17,8 @@ export type POI = {
   'indicator-image-map': MapDataImage;
   'indicator-image-sider': MapDataImage;
   'indicator-template': string | null;
-  lat: number;
-  lng: number;
+  latitude: number;
+  longitude: number;
   'modal-images': MapDataImage[];
   name: string;
   slug: string;
@@ -29,23 +29,18 @@ export type POI = {
 };
 
 export type MapData = {
-  center: {
-    lng: number;
-    lat: number;
-  };
-  css: string | null;
+  lng: number;
+  lat: number;
+  'custom-css': string | null;
   font: string;
-  'modal-template': string;
   poi: POI[];
   'primary-color': string;
   'secondary-color': string;
   'tertiary-color': string;
-  'sider-template': string | null;
   slug: string;
-  'style-template': string;
   'map-color-style': string | undefined;
   subtitle: string;
-  title: string;
+  name: string;
   'zoom-level': number;
 };
 
@@ -62,7 +57,11 @@ const LogicController = () => {
   if (isError) return <Error error={error} />;
 
   const mapData = data.data as MapData;
-  const { css, 'primary-color': primaryColor, 'secondary-color': secondaryColor } = mapData;
+  const {
+    'custom-css': css,
+    'primary-color': primaryColor,
+    'secondary-color': secondaryColor,
+  } = mapData;
 
   return (
     <>

@@ -21,10 +21,10 @@ const MapIndicatorModal = ({
     'cta-text': ctaText,
   },
 }: Props) => {
-  console.log(ctaLink);
+  console.log('modal-images', modalImages);
   return (
     <div className={[styles.mapIndicatorModal, selected ? styles.selected : null].join(' ')}>
-      {modalImages.length < 1 ? null : (
+      {modalImages && modalImages.length > 0 ? (
         <Carousel
           className={styles.carouselWrapper}
           showIndicators={false}
@@ -41,7 +41,7 @@ const MapIndicatorModal = ({
             );
           })}
         </Carousel>
-      )}
+      ) : null}
       <div className={styles.textWrapper}>
         {titleLink ? (
           <a href={titleLink} target="_blank" rel="noreferrer">

@@ -15,7 +15,7 @@ interface Props {
 }
 
 const MapController = ({
-  mapData: { poi, center, 'zoom-level': zoom, 'map-color-style': mapStyle = 'default' },
+  mapData: { poi, lat, lng, 'zoom-level': zoom, 'map-color-style': mapStyle = 'default' },
   selectedPOI,
   setSelectedPOI,
 }: Props) => {
@@ -72,17 +72,17 @@ const MapController = ({
 
   const [map, setMap] = useState<google.maps.Map | undefined>();
 
-  const panTo = ({ lat, lng }: { lat: number; lng: number }) => {
+  const panTo = ({ latitude, longitude }: { latitude: number; longitude: number }) => {
     if (isLoaded && map) {
-      map.panTo({ lat, lng });
+      map.panTo({ lat: latitude, lng: longitude });
       map.panBy(-100, -100);
     }
   };
 
   useEffect(() => {
     if (!selectedPOI || !poi) return;
-    const { lat, lng } = poi.find(({ slug }) => slug === selectedPOI) as POI;
-    panTo({ lat, lng });
+    const { latitude, longitude } = poi.find(({ slug }) => slug === selectedPOI) as POI;
+    panTo({ latitude, longitude });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedPOI]);
 
@@ -93,12 +93,15 @@ const MapController = ({
       mapContainerClassName={styles.mapWrapper}
       clickableIcons={false}
       onLoad={(map) => setMap(map)}
-      {...{ options, center, zoom }}
+      {...{ options, center: { lat, lng }, zoom }}
     >
-      {poi.map(({ slug, lat, lng }, index) => {
+      {poi.map(({ slug, latitude, longitude }, index) => {
         return (
-          <span key={slug} onClick={() => panTo({ lat, lng })}>
-            <OverlayViewF mapPaneName={'overlayMouseTarget'} position={{ lat, lng }}>
+          <span key={slug} onClick={() => panTo({ latitude, longitude })}>
+            <OverlayViewF
+              mapPaneName={'overlayMouseTarget'}
+              position={{ lat: latitude, lng: longitude }}
+            >
               <MapIndicator
                 {...{
                   selected: selectedPOI === slug,

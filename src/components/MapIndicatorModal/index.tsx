@@ -1,5 +1,4 @@
 import { Carousel } from 'react-responsive-carousel';
-import { Link } from 'react-router-dom';
 import { POI } from '../LogicController';
 
 import styles from './styles.module.css';

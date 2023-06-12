@@ -71,7 +71,9 @@ const LogicController = () => {
         style={{ backgroundColor: primaryColor, color: secondaryColor }}
       >
         <Menu {...{ mapData, selectedPOI, setSelectedPOI }} />
-        <MapController {...{ mapData, selectedPOI, setSelectedPOI }} />
+        <MapController
+          {...{ mapData, selectedPOI, setSelectedPOI, primaryColor, secondaryColor }}
+        />
       </div>
     </>
   );

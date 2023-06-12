@@ -1,6 +1,5 @@
 .mapWrapper {
-  grid-column: 2 / span 3;
-  aspect-ratio: 1 / 1;
+  grid-column: 1 / span 1;
   background-color: darkgray;
   container-type: inline;
 }
@@ -8,14 +7,12 @@
 @container (max-width: 990px) {
   .mapWrapper {
     grid-column: 1 / span 4;
-    aspect-ratio: 1 / 1;
   }
 }
 
 @container (max-width: 425px) {
   .mapWrapper {
     grid-column: 1 / span 4;
-    aspect-ratio: 1 / 2;
     max-height: 100%;
   }
 }

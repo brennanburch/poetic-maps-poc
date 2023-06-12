@@ -1,11 +1,12 @@
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   container-type: inline-size;
   overflow: hidden;
+  height: 100%;
 }
 
-@container (width < 990px) {
+@container (width <= 990px) {
   .wrapper {
     display: f;
     grid-template-columns: repeat(1, 1fr);

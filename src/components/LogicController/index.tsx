@@ -29,17 +29,14 @@ export type POI = {
 };
 
 export type MapData = {
-  lng: number;
-  lat: number;
+  longitude: number;
+  latitude: number;
   'custom-css': string | null;
-  font: string;
   poi: POI[];
   'primary-color': string;
   'secondary-color': string;
-  'tertiary-color': string;
   slug: string;
   'map-color-style': string | undefined;
-  subtitle: string;
   name: string;
   'zoom-level': number;
 };
@@ -70,10 +67,8 @@ const LogicController = () => {
         className={styles.wrapper}
         style={{ backgroundColor: primaryColor, color: secondaryColor }}
       >
+        <MapController {...{ mapData, selectedPOI, setSelectedPOI }} />
         <Menu {...{ mapData, selectedPOI, setSelectedPOI }} />
-        <MapController
-          {...{ mapData, selectedPOI, setSelectedPOI, primaryColor, secondaryColor }}
-        />
       </div>
     </>
   );

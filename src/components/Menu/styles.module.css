@@ -22,14 +22,14 @@
 }
 
 .mobileDropdown {
-  animation: dropdownOpening 500ms;
+  animation: dropdownOpening ease-in 500ms;
   max-height: 300px;
 }
 
 .mobileDropdownClosed {
   max-height: 0px;
   margin: 0 10px !important;
-  transition: all 50ms;
+  transition: all 200ms;
   overflow: hidden;
 }
 
@@ -39,7 +39,7 @@
   }
 
   to {
-    max-height: 300px;
+    max-height: 9999px;
   }
 }
 

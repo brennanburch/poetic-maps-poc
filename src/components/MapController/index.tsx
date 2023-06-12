@@ -12,14 +12,18 @@ interface Props {
   mapData: MapData;
   selectedPOI: string | undefined;
   setSelectedPOI: Dispatch<SetStateAction<string | undefined>>;
-  primaryColor: string;
-  secondaryColor: string;
 }
 
 const MapController = ({
-  mapData: { poi, lat, lng, 'zoom-level': zoom, 'map-color-style': mapStyle = 'default' },
-  primaryColor,
-  secondaryColor,
+  mapData: {
+    poi,
+    latitude,
+    longitude,
+    'zoom-level': zoom,
+    'map-color-style': mapStyle = 'default',
+    'primary-color': primaryColor,
+    'secondary-color': secondaryColor,
+  },
   selectedPOI,
   setSelectedPOI,
 }: Props) => {
@@ -79,7 +83,7 @@ const MapController = ({
   const panTo = ({ latitude, longitude }: { latitude: number; longitude: number }) => {
     if (isLoaded && map) {
       map.panTo({ lat: latitude, lng: longitude });
-      map.panBy(-100, -100);
+      map.panBy(-50, -300);
     }
   };
 
@@ -97,7 +101,7 @@ const MapController = ({
       mapContainerClassName={styles.mapWrapper}
       clickableIcons={false}
       onLoad={(map) => setMap(map)}
-      {...{ options, center: { lat, lng }, zoom }}
+      {...{ options, center: { lat: latitude, lng: longitude }, zoom }}
     >
       {poi.map(({ slug, latitude, longitude }, index) => {
         return (

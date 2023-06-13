@@ -21,7 +21,7 @@ const MapIndicatorModal = ({
     'cta-link': ctaLink,
     'cta-text': ctaText,
   },
-  // primaryColor,
+  primaryColor,
   secondaryColor,
 }: Props) => {
   return (
@@ -60,7 +60,7 @@ const MapIndicatorModal = ({
           <a href={ctaLink} target="_blank" rel="noreferrer">
             <button
               className={[styles.ctaLink, 'cta-link-button'].join(' ')}
-              style={{ backgroundColor: secondaryColor }}
+              style={{ backgroundColor: secondaryColor, color: primaryColor }}
             >
               {ctaText ? ctaText : 'Visit Site'}
             </button>

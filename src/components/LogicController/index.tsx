@@ -64,7 +64,8 @@ const LogicController = () => {
     <>
       {css ? <style>{css}</style> : null}
       <div
-        className={styles.wrapper}
+        id="app-wrapper"
+        className={styles.appWrapper}
         style={{ backgroundColor: primaryColor, color: secondaryColor }}
       >
         <MapController {...{ mapData, selectedPOI, setSelectedPOI }} />

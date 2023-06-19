@@ -1,4 +1,4 @@
-.wrapper {
+.errorWrapper {
   padding: 0;
   height: 100vh;
   display: flex;
@@ -6,7 +6,7 @@
   justify-content: space-around;
 }
 
-.wrapper p {
+.errorWrapperText {
   font-size: 72px;
   font-weight: 1000;
   color: gray;

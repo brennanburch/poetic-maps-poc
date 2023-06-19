@@ -98,6 +98,7 @@ const MapController = ({
 
   return (
     <GoogleMap
+      id="map-wrapper"
       mapContainerClassName={styles.mapWrapper}
       clickableIcons={false}
       onLoad={(map) => setMap(map)}
@@ -105,7 +106,11 @@ const MapController = ({
     >
       {poi.map(({ slug, latitude, longitude }, index) => {
         return (
-          <span key={slug} onClick={() => panTo({ latitude, longitude })}>
+          <span
+            className="indicator-wrapper"
+            key={slug}
+            onClick={() => panTo({ latitude, longitude })}
+          >
             <OverlayViewF
               mapPaneName={'overlayMouseTarget'}
               position={{ lat: latitude, lng: longitude }}

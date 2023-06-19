@@ -24,17 +24,18 @@ const Dropdown = ({
   };
 
   return (
-    <div className={[styles.dropdown, 'dropdown', className].join(' ')}>
+    <div className={[styles.dropdown, 'dropdown-wrapper', className].join(' ')}>
       <div
-        className={styles.dropdownHeader}
+        className={[styles.dropdownHeader, 'dropdown-header'].join(' ')}
         onClick={handleToggle}
         style={{ borderBottomColor: secondaryColor }}
       >
-        <label>{category}</label>
-        <div className={styles.showHide}>
-          <span>
+        <label className="dropdown-header-text">{category}</label>
+        <div className={[styles.showHide, 'show-hide-wrapper'].join(' ')}>
+          <span className={[styles.showHideContent, 'show-hide-contents'].join(' ')}>
             {!toggle ? 'Show' : 'Hide'}{' '}
             <FaChevronRight
+              className="show-hide-icon"
               style={{
                 transform: `rotateZ(${toggle ? '90deg' : '0deg'})`,
                 transition: 'all 200ms',
@@ -44,8 +45,14 @@ const Dropdown = ({
           </span>
         </div>
       </div>
-      <div className={[styles.expandableSection, toggle ? styles.active : null].join(' ')}>
-        <ul className={[styles.items].join(' ')}>{children}</ul>
+      <div
+        className={[
+          styles.expandableSection,
+          toggle ? styles.active : null,
+          'dropdown-content-wrapper',
+        ].join(' ')}
+      >
+        <ul className={[styles.items, 'dropdown-content-list'].join(' ')}>{children}</ul>
       </div>
     </div>
   );

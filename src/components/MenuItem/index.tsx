@@ -30,12 +30,12 @@ const MenuItem = ({
 
   return (
     <li
-      className={[styles.menuItem, selected ? styles.selected : null].join(' ')}
+      className={[styles.menuItem, selected ? styles.selected : null, 'map-menu-item'].join(' ')}
       onClick={clickHandler}
     >
-      <img src={url} alt={alt ? alt : undefined} />
-      <span>
-        <em>{name}</em>
+      <img className="map-menu-item-image" src={url} alt={alt ? alt : undefined} />
+      <span className="map-menu-item-text-wrapper">
+        <em className="map-menu-item-text">{name}</em>
       </span>
     </li>
   );

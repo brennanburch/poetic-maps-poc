@@ -43,16 +43,22 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
   }, []);
 
   return (
-    <nav className={styles.menu} style={{ backgroundColor: primaryColor }}>
+    <nav id="map-menu" className={styles.menu} style={{ backgroundColor: primaryColor }}>
       {isMobile ? (
         mobileOpen ? (
           <AiOutlineCloseCircle
+            id="map-menu-mobile-close"
             className={styles.menuIcon}
             size="40px"
             onClick={handleOpenToggle}
           />
         ) : (
-          <BiMenu className={styles.menuIcon} size="40px" onClick={handleOpenToggle} />
+          <BiMenu
+            id="map-menu-mobile-open"
+            className={styles.menuIcon}
+            size="40px"
+            onClick={handleOpenToggle}
+          />
         )
       ) : null}
       {categories.map((category) => {

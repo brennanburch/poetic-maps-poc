@@ -1,12 +1,3 @@
-a {
-  color: black;
-}
-
-button{
-  margin:auto;
-  width:auto;
-  padding:4px;
-}
 .bottomContainer{
   display: flex;
   justify-content: center;

@@ -8,8 +8,10 @@ const Error = ({ error }: Props) => {
   console.log(error);
 
   return (
-    <div className={[styles.wrapper, 'error-wrapper'].join(' ')}>
-      <p>Error! Something when wrong...</p>
+    <div id="error-wrapper" className={styles.errorWrapper}>
+      <p id="error-text" className={styles.errorWrapperText}>
+        Error! Something when wrong...
+      </p>
     </div>
   );
 };

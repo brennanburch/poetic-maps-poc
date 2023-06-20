@@ -13,6 +13,7 @@
   justify-content: space-between;
   border-bottom-width: 3px;
   border-bottom-style: solid;
+  cursor: pointer;
 }
 
 .items {
@@ -24,11 +25,7 @@
   min-height: 0;
 }
 
-.showHide {
-  cursor: pointer;
-}
-
-.showHide span {
+.showHideContent {
   display: inline;
   font-size: 0.9em;
   display: flex;

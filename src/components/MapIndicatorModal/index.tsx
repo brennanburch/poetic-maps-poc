@@ -25,10 +25,16 @@ const MapIndicatorModal = ({
   secondaryColor,
 }: Props) => {
   return (
-    <div className={[styles.mapIndicatorModal, selected ? styles.selected : null].join(' ')}>
+    <div
+      className={[
+        styles.mapIndicatorModal,
+        selected ? styles.selected : null,
+        'map-indicator-modal',
+      ].join(' ')}
+    >
       {modalImages && modalImages.length > 0 ? (
         <Carousel
-          className={styles.carouselWrapper}
+          className={[styles.carouselWrapper, 'map-indicator-modal-carousel'].join(' ')}
           showIndicators={false}
           infiniteLoop={true}
           showStatus={false}
@@ -44,22 +50,34 @@ const MapIndicatorModal = ({
           })}
         </Carousel>
       ) : null}
-      <div className={styles.textWrapper}>
+      <div className={[styles.textWrapper, 'map-indicator-modal-text-wrapper'].join(' ')}>
         {titleLink ? (
-          <a href={titleLink} target="_blank" rel="noreferrer">
-            <h3 className={styles.title}>{name}</h3>
+          <a
+            className="map-indicator-modal-title-link"
+            href={titleLink}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <h3 className={[styles.title, 'map-indicator-modal-title'].join(' ')}>{name}</h3>
           </a>
         ) : (
-          <h3 className={styles.title}>{name}</h3>
+          <h3 className={[styles.title, 'map-indicator-modal-title'].join(' ')}>{name}</h3>
         )}
-        <span className={styles.address}>{address}</span>
-        <p className={styles.description}>{description}</p>
+        <span className={[styles.address, 'map-indicator-modal-address'].join(' ')}>{address}</span>
+        <p className={[styles.description, 'map-indicator-modal-description'].join(' ')}>
+          {description}
+        </p>
       </div>
-      <div className={styles.bottomContainer}>
+      <div className={[styles.bottomContainer, 'map-indicator-modal-bottom-container'].join(' ')}>
         {ctaLink ? (
-          <a href={ctaLink} target="_blank" rel="noreferrer">
+          <a
+            className="map-indicator-modal-cta-link"
+            href={ctaLink}
+            target="_blank"
+            rel="noreferrer"
+          >
             <button
-              className={[styles.ctaLink, 'cta-link-button'].join(' ')}
+              className={[styles.ctaLink, 'map-indicator-modal-cta-link-button'].join(' ')}
               style={{ backgroundColor: secondaryColor, color: primaryColor }}
             >
               {ctaText ? ctaText : 'Visit Site'}

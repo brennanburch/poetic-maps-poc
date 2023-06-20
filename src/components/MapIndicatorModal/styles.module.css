@@ -1,19 +1,8 @@
-a {
-  color: black;
-}
-
-button{
-  margin:auto;
-  width:auto;
-  padding:4px;
-}
-.bottomContainer{
+.bottomContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding:4px;
-  
-  
+  padding: 4px;
 }
 .mapIndicatorModal {
   position: absolute;
@@ -49,6 +38,10 @@ button{
   animation-timing-function: ease;
   display: block;
   container-type: inline;
+}
+
+.textWrapper a {
+  color: inherit;
 }
 
 @keyframes popup {

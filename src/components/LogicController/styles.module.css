@@ -5,10 +5,56 @@
   overflow: hidden;
   height: 100%;
 }
+ .right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  container-type: inline-size;
+  overflow: hidden;
+  direction : ltr;
+  height: 100%;
+}
+.left{
+  display: grid;
+grid-template-columns: repeat(2, 1fr);
+container-type: inline-size;
+overflow: hidden;
+direction : rtl;
+height: 100%;
+}
+.top{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  container-type: inline-size;
+  overflow: hidden;
+  height: 100%;
+}
+.bottom{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  container-type: inline-size;
+  overflow: hidden;
+  height: 100%;
+ 
+
+}
+
+.none {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  container-type: inline-size;
+  overflow: hidden;
+  height: 100%;
+}
 
 @container (width <= 990px) {
   .appWrapper {
-    display: f;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    max-height: 100%;
+  }
+
+  .none {
+    display: grid;
     grid-template-columns: repeat(1, 1fr);
     max-height: 100%;
   }

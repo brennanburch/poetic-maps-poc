@@ -1,10 +1,12 @@
+import { Dispatch, SetStateAction } from 'react';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { Carousel } from 'react-responsive-carousel';
 import { POI } from '../LogicController';
-
 import styles from './styles.module.css';
 
 interface Props {
   selected: boolean;
+  setSelectedPOI: Dispatch<SetStateAction<string | undefined>>;
   poi: POI;
   primaryColor: string;
   secondaryColor: string;
@@ -12,6 +14,7 @@ interface Props {
 
 const MapIndicatorModal = ({
   selected,
+  setSelectedPOI,
   poi: {
     name,
     description,
@@ -32,6 +35,13 @@ const MapIndicatorModal = ({
         'map-indicator-modal',
       ].join(' ')}
     >
+      <AiOutlineCloseCircle
+        id="map-menu-modal-close"
+        className={styles.closeIcon}
+        size="30px"
+        style={{ backgroundColor: primaryColor, color: secondaryColor }}
+        onClick={() => setSelectedPOI(undefined)} // Deselect the selected POI
+      />
       {modalImages && modalImages.length > 0 ? (
         <Carousel
           className={[styles.carouselWrapper, 'map-indicator-modal-carousel'].join(' ')}

@@ -19,7 +19,11 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
     if (!categories.includes(category)) categories.push(category);
   });
 
-  const { 'primary-color': primaryColor, 'secondary-color': secondaryColor } = mapData;
+  const {
+    'primary-color': primaryColor,
+    'secondary-color': secondaryColor,
+    'nav-location': navLocation,
+  } = mapData;
 
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   const isMobile = innerWidth <= 990;
@@ -32,6 +36,29 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
     setMobileOpen(false);
   };
 
+  let menuLayout = '';
+  switch (navLocation) {
+    case 'top':
+      menuLayout = styles.top;
+
+      break;
+    case 'bottom':
+      menuLayout = styles.bottom;
+      break;
+    case 'left':
+      menuLayout = styles.left;
+
+      break;
+    case 'right':
+      menuLayout = styles.right;
+
+      break;
+    case 'none':
+      menuLayout = styles.none;
+      break;
+    // Add more cases as needed
+  }
+
   useEffect(() => {
     const handleResize = () => {
       setInnerWidth(window.innerWidth);
@@ -43,60 +70,62 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
   }, []);
 
   return (
-    <nav id="map-menu" className={styles.menu} style={{ backgroundColor: primaryColor }}>
-      {isMobile ? (
-        mobileOpen ? (
-          <AiOutlineCloseCircle
-            id="map-menu-mobile-close"
-            className={styles.menuIcon}
-            size="40px"
-            onClick={handleOpenToggle}
-          />
-        ) : (
-          <BiMenu
-            id="map-menu-mobile-open"
-            className={styles.menuIcon}
-            size="40px"
-            onClick={handleOpenToggle}
-          />
-        )
-      ) : null}
-      {categories.map((category) => {
-        return (
-          <Dropdown
-            className={
-              isMobile && mobileOpen
-                ? styles.mobileDropdown
-                : isMobile && !mobileOpen
-                ? styles.mobileDropdownClosed
-                : null
-            }
-            key={category}
-            category={category}
-            {...{ primaryColor, secondaryColor }}
-          >
-            {mapData.poi
-              .filter(({ category: poiCategory }) => poiCategory === category)
-              .map(({ name, slug, 'indicator-image-sider': indicatorImageSider, address }) => {
-                return (
-                  <MenuItem
-                    key={slug}
-                    {...{
-                      name,
-                      indicatorImageSider,
-                      selected: selectedPOI === slug ? true : false,
-                      setSelectedPOI,
-                      slug,
-                      address,
-                      handleCloseMobile,
-                    }}
-                  />
-                );
-              })}
-          </Dropdown>
-        );
-      })}
-    </nav>
+    <>
+      <nav id="map-menu" className={menuLayout} style={{ backgroundColor: primaryColor }}>
+        {isMobile ? (
+          mobileOpen ? (
+            <AiOutlineCloseCircle
+              id="map-menu-mobile-close"
+              className={styles.menuIcon}
+              size="40px"
+              onClick={handleOpenToggle}
+            />
+          ) : (
+            <BiMenu
+              id="map-menu-mobile-open"
+              className={styles.menuIcon}
+              size="40px"
+              onClick={handleOpenToggle}
+            />
+          )
+        ) : null}
+        {categories.map((category) => {
+          return (
+            <Dropdown
+              className={
+                isMobile && mobileOpen
+                  ? styles.mobileDropdown
+                  : isMobile && !mobileOpen
+                  ? styles.mobileDropdownClosed
+                  : null
+              }
+              key={category}
+              category={category}
+              {...{ primaryColor, secondaryColor }}
+            >
+              {mapData.poi
+                .filter(({ category: poiCategory }) => poiCategory === category)
+                .map(({ name, slug, 'indicator-image-sider': indicatorImageSider, address }) => {
+                  return (
+                    <MenuItem
+                      key={slug}
+                      {...{
+                        name,
+                        indicatorImageSider,
+                        selected: selectedPOI === slug ? true : false,
+                        setSelectedPOI,
+                        slug,
+                        address,
+                        handleCloseMobile,
+                      }}
+                    />
+                  );
+                })}
+            </Dropdown>
+          );
+        })}
+      </nav>
+    </>
   );
 };
 

@@ -39,6 +39,10 @@ export type MapData = {
   'map-color-style': string | undefined;
   name: string;
   'zoom-level': number;
+  'modal-toggle': boolean;
+  'dropdown-open': boolean;
+  'nav-location': string;
+  'toggle-categories': boolean;
 };
 
 const LogicController = () => {
@@ -58,14 +62,39 @@ const LogicController = () => {
     'custom-css': css,
     'primary-color': primaryColor,
     'secondary-color': secondaryColor,
+    'nav-location': navLocation,
   } = mapData;
+
+  let mapLayout = '';
+  switch (navLocation) {
+    case 'top':
+      mapLayout = styles.top;
+      console.log('top');
+      break;
+    case 'bottom':
+      mapLayout = styles.bottom;
+      console.log('bottom');
+      break;
+    case 'left':
+      mapLayout = styles.left;
+      console.log('left');
+      break;
+    case 'right':
+      mapLayout = styles.right;
+      console.log('right');
+      break;
+    case 'none':
+      mapLayout = styles.none;
+      console.log('none');
+      break;
+  }
 
   return (
     <>
       {css ? <style>{css}</style> : null}
       <div
         id="app-wrapper"
-        className={styles.appWrapper}
+        className={mapLayout}
         style={{ backgroundColor: primaryColor, color: secondaryColor }}
       >
         <MapController {...{ mapData, selectedPOI, setSelectedPOI }} />

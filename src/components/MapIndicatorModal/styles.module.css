@@ -39,6 +39,13 @@
   display: block;
   container-type: inline;
 }
+.closeIcon{
+  position:absolute;
+  z-index: 3;
+  border-radius:20px;
+  top:1em;
+  right:1em;
+}
 
 .textWrapper a {
   color: inherit;

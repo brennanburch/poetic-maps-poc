@@ -35,7 +35,7 @@ const MapIndicator = ({ selected, setSelectedPOI, poi, primaryColor, secondaryCo
         src={url}
         alt={alt ? alt : undefined}
       />
-      <MapIndicatorModal {...{ selected, poi, primaryColor, secondaryColor }} />
+      <MapIndicatorModal {...{ selected, setSelectedPOI, poi, primaryColor, secondaryColor }} />
     </span>
   );
 };

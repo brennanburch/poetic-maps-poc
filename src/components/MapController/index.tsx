@@ -88,9 +88,10 @@ const MapController = ({
   };
 
   useEffect(() => {
-    if (!selectedPOI || !poi) return;
-    const { latitude, longitude } = poi.find(({ slug }) => slug === selectedPOI) as POI;
-    panTo({ latitude, longitude });
+    if (selectedPOI && poi) {
+      const { latitude, longitude } = poi.find(({ slug }) => slug === selectedPOI) as POI;
+      panTo({ latitude, longitude });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedPOI]);
 

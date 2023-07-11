@@ -14,6 +14,7 @@ interface Props {
   setSelectedPOI: Dispatch<SetStateAction<string | undefined>>;
 }
 const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
+  //Separates POIs by category
   const categories: Array<string> = [];
   mapData.poi.forEach(({ category }) => {
     if (!categories.includes(category)) categories.push(category);
@@ -23,11 +24,11 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
     'primary-color': primaryColor,
     'secondary-color': secondaryColor,
     'nav-location': navLocation,
+    'toggle-categories': toggleCategories,
   } = mapData;
-
+  //Mobile layout detection
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   const isMobile = innerWidth <= 990;
-
   const [mobileOpen, setMobileOpen] = useState(false);
   const handleOpenToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -35,7 +36,7 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
   const handleCloseMobile = () => {
     setMobileOpen(false);
   };
-
+  //Switches layout based on entry into nav-location field in PoeticMaps collection
   let menuLayout = '';
   switch (navLocation) {
     case 'top':
@@ -56,9 +57,8 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
     case 'none':
       menuLayout = styles.none;
       break;
-    // Add more cases as needed
   }
-
+  //handles changing layout to mobile
   useEffect(() => {
     const handleResize = () => {
       setInnerWidth(window.innerWidth);
@@ -68,46 +68,94 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+  //Handles toggle-categories field in PoeticMaps collection
 
   return (
     <>
-      <nav id="map-menu" className={menuLayout} style={{ backgroundColor: primaryColor }}>
-        {isMobile ? (
-          mobileOpen ? (
-            <AiOutlineCloseCircle
-              id="map-menu-mobile-close"
-              className={styles.menuIcon}
-              size="40px"
-              onClick={handleOpenToggle}
-            />
-          ) : (
-            <BiMenu
-              id="map-menu-mobile-open"
-              className={styles.menuIcon}
-              size="40px"
-              onClick={handleOpenToggle}
-            />
-          )
-        ) : null}
-        {categories.map((category) => {
-          return (
-            <Dropdown
-              className={
-                isMobile && mobileOpen
-                  ? styles.mobileDropdown
-                  : isMobile && !mobileOpen
-                  ? styles.mobileDropdownClosed
-                  : null
-              }
-              key={category}
-              category={category}
-              {...{ primaryColor, secondaryColor }}
-            >
-              {mapData.poi
-                .filter(({ category: poiCategory }) => poiCategory === category)
-                .map(({ name, slug, 'indicator-image-sider': indicatorImageSider, address }) => {
+      {toggleCategories ? (
+        <nav id="map-menu" className={menuLayout} style={{ backgroundColor: primaryColor }}>
+          {isMobile ? (
+            mobileOpen ? (
+              <AiOutlineCloseCircle
+                id="map-menu-mobile-close"
+                className={styles.menuIcon}
+                size="40px"
+                onClick={handleOpenToggle}
+              />
+            ) : (
+              <BiMenu
+                id="map-menu-mobile-open"
+                className={styles.menuIcon}
+                size="40px"
+                onClick={handleOpenToggle}
+              />
+            )
+          ) : null}
+
+          {categories.map((category) => {
+            return (
+              <Dropdown
+                className={
+                  isMobile && mobileOpen
+                    ? styles.mobileDropdown
+                    : isMobile && !mobileOpen
+                    ? styles.mobileDropdownClosed
+                    : null
+                }
+                key={category}
+                category={category}
+                {...{ primaryColor, secondaryColor }}
+              >
+                {mapData.poi
+                  .filter(({ category: poiCategory }) => poiCategory === category)
+                  .map(({ name, slug, 'indicator-image-sider': indicatorImageSider, address }) => {
+                    return (
+                      <MenuItem
+                        key={slug}
+                        {...{
+                          name,
+                          indicatorImageSider,
+                          selected: selectedPOI === slug ? true : false,
+                          setSelectedPOI,
+                          slug,
+                          address,
+                          handleCloseMobile,
+                        }}
+                      />
+                    );
+                  })}
+              </Dropdown>
+            );
+          })}
+        </nav>
+      ) : (
+        <nav id="map-menu" className={menuLayout} style={{ backgroundColor: primaryColor }}>
+          {isMobile ? (
+            mobileOpen ? (
+              <AiOutlineCloseCircle
+                id="map-menu-mobile-close"
+                className={styles.menuIcon}
+                size="40px"
+                onClick={handleOpenToggle}
+              />
+            ) : (
+              <BiMenu
+                id="map-menu-mobile-open"
+                className={styles.menuIcon}
+                size="40px"
+                onClick={handleOpenToggle}
+              />
+            )
+          ) : null}
+          <div className={styles.menu}>
+            <ul>
+              {mapData.poi.map(
+                ({ name, slug, 'indicator-image-sider': indicatorImageSider, address }) => {
                   return (
                     <MenuItem
+                      handleCloseMobile={function (): void {
+                        throw new Error('Function not implemented.');
+                      }}
                       key={slug}
                       {...{
                         name,
@@ -116,15 +164,15 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
                         setSelectedPOI,
                         slug,
                         address,
-                        handleCloseMobile,
                       }}
                     />
                   );
-                })}
-            </Dropdown>
-          );
-        })}
-      </nav>
+                },
+              )}
+            </ul>
+          </div>
+        </nav>
+      )}
     </>
   );
 };

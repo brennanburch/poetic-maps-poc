@@ -102,4 +102,19 @@ display:none;
     width: 100%;
     border: none;
   }
+  .menu {
+    grid-column: 2 / span 1;
+    container-type: inline-size;
+  }
+  .left{
+    grid-column: 2 / span 1;
+    container-type: inline-size;
+    direction:ltr;
+  
+  }
+  .right {
+     grid-column: 1
+      / span 1;
+  container-type: inline-size;
+  }
 }

@@ -8,6 +8,7 @@
   position: absolute;
   display: none;
   cursor: default;
+  direction:ltr;
 }
 
 .mapIndicatorModal::after {

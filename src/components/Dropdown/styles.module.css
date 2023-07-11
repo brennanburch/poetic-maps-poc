@@ -6,15 +6,7 @@
   height: fit-content;
   margin: 1em;
 }
-.dropdownHorizontal {
-  position: relative;
-  display: grid;
-  grid-template-columns:repeat (1fr 1fr);
-  border: none;
-  height: fit-content;
-  margin: 1em;
- 
-}
+
 
 .dropdownHeader {
   display: flex;

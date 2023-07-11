@@ -18,7 +18,7 @@
 grid-template-columns: repeat(2, 1fr);
 container-type: inline-size;
 overflow: hidden;
-direction : rtl;
+direction:rtl;
 height: 100%;
 }
 .top{
@@ -45,6 +45,7 @@ height: 100%;
   overflow: hidden;
   height: 100%;
 }
+
 
 @container (width <= 990px) {
   .appWrapper {

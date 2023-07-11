@@ -11,9 +11,17 @@ interface Props {
   poi: POI;
   primaryColor: string;
   secondaryColor: string;
+  modalToggle: boolean;
 }
 
-const MapIndicator = ({ selected, setSelectedPOI, poi, primaryColor, secondaryColor }: Props) => {
+const MapIndicator = ({
+  selected,
+  setSelectedPOI,
+  poi,
+  primaryColor,
+  secondaryColor,
+  modalToggle,
+}: Props) => {
   const {
     slug,
     name,
@@ -35,7 +43,9 @@ const MapIndicator = ({ selected, setSelectedPOI, poi, primaryColor, secondaryCo
         src={url}
         alt={alt ? alt : undefined}
       />
-      <MapIndicatorModal {...{ selected, setSelectedPOI, poi, primaryColor, secondaryColor }} />
+      <MapIndicatorModal
+        {...{ selected, setSelectedPOI, poi, primaryColor, secondaryColor, modalToggle }}
+      />
     </span>
   );
 };

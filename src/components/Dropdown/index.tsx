@@ -24,7 +24,7 @@ const Dropdown = ({
   };
 
   return (
-    <div className={[styles.dropdownHorizontal, 'dropdown-wrapper', className].join(' ')}>
+    <div className={[styles.dropdown, 'dropdown-wrapper', className].join(' ')}>
       <div
         className={[styles.dropdownHeader, 'dropdown-header'].join(' ')}
         onClick={handleToggle}

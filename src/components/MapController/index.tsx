@@ -83,7 +83,7 @@ const MapController = ({
   const panTo = ({ latitude, longitude }: { latitude: number; longitude: number }) => {
     if (isLoaded && map) {
       map.panTo({ lat: latitude, lng: longitude });
-      map.panBy(-50, -300);
+      map.panBy(-50, -100);
     }
   };
 
@@ -117,6 +117,7 @@ const MapController = ({
               position={{ lat: latitude, lng: longitude }}
             >
               <MapIndicator
+                modalToggle={false}
                 {...{
                   selected: selectedPOI === slug,
                   setSelectedPOI,

@@ -63,6 +63,7 @@ const LogicController = () => {
     'primary-color': primaryColor,
     'secondary-color': secondaryColor,
     'nav-location': navLocation,
+    'dropdown-open': dropdownOpen,
   } = mapData;
 
   let mapLayout = '';

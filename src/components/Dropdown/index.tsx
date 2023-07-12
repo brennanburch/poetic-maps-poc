@@ -9,6 +9,7 @@ interface Props {
   className: string | null;
   primaryColor?: string;
   secondaryColor?: string;
+  dropdownOpen: boolean;
 }
 
 const Dropdown = ({

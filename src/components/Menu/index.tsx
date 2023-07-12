@@ -25,6 +25,7 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
     'secondary-color': secondaryColor,
     'nav-location': navLocation,
     'toggle-categories': toggleCategories,
+    'dropdown-open': dropdownOpen,
   } = mapData;
   //Mobile layout detection
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
@@ -68,7 +69,7 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  //Handles toggle-categories field in PoeticMaps collection
+  //Handles dropdown-open field in PoeticMaps collection
 
   return (
     <>
@@ -104,7 +105,7 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
                 }
                 key={category}
                 category={category}
-                {...{ primaryColor, secondaryColor }}
+                {...{ primaryColor, secondaryColor, dropdownOpen }}
               >
                 {mapData.poi
                   .filter(({ category: poiCategory }) => poiCategory === category)

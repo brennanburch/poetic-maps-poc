@@ -10,7 +10,6 @@ interface Props {
   poi: POI;
   primaryColor: string;
   secondaryColor: string;
-  modalToggle: boolean;
 }
 
 const MapIndicatorModal = ({
@@ -27,7 +26,6 @@ const MapIndicatorModal = ({
   },
   primaryColor,
   secondaryColor,
-  modalToggle,
 }: Props) => {
   return (
     <>

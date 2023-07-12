@@ -43,9 +43,10 @@ const MapIndicator = ({
         src={url}
         alt={alt ? alt : undefined}
       />
-      <MapIndicatorModal
-        {...{ selected, setSelectedPOI, poi, primaryColor, secondaryColor, modalToggle }}
-      />
+      {modalToggle ? (
+        <MapIndicatorModal {...{ selected, setSelectedPOI, poi, primaryColor, secondaryColor }} />
+      ) : null}
+      ;
     </span>
   );
 };

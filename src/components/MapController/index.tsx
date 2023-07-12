@@ -23,6 +23,7 @@ const MapController = ({
     'map-color-style': mapStyle = 'default',
     'primary-color': primaryColor,
     'secondary-color': secondaryColor,
+    'modal-toggle': modalToggle,
   },
   selectedPOI,
   setSelectedPOI,
@@ -88,7 +89,7 @@ const MapController = ({
   };
 
   useEffect(() => {
-    if (selectedPOI && poi) {
+    if (selectedPOI && poi && modalToggle) {
       const { latitude, longitude } = poi.find(({ slug }) => slug === selectedPOI) as POI;
       panTo({ latitude, longitude });
     }
@@ -117,13 +118,13 @@ const MapController = ({
               position={{ lat: latitude, lng: longitude }}
             >
               <MapIndicator
-                modalToggle={false}
                 {...{
                   selected: selectedPOI === slug,
                   setSelectedPOI,
                   poi: poi[index],
                   primaryColor,
                   secondaryColor,
+                  modalToggle,
                 }}
               />
             </OverlayViewF>

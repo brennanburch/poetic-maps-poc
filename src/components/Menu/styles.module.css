@@ -39,7 +39,7 @@ ul{
 
 .right ul{
   display: grid;
-  grid-template-columns:  1fr ;
+  grid-template-columns: 1fr 1fr ;
   height:fit-content;
   width:fit-content;
   justify-content:space-between;
@@ -48,7 +48,7 @@ ul{
 
 .left ul{
   display: grid;
-  grid-template-columns:  1fr ;
+  grid-template-columns:  1fr 1fr ;
   height:fit-content;
   width:fit-content;
   justify-content:space-between;

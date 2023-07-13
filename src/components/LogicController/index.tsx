@@ -63,31 +63,29 @@ const LogicController = () => {
     'primary-color': primaryColor,
     'secondary-color': secondaryColor,
     'nav-location': navLocation,
-    'dropdown-open': dropdownOpen,
-    'modal-toggle': modalToggle,
   } = mapData;
 
   let mapLayout = '';
   switch (navLocation) {
     case 'top':
       mapLayout = styles.top;
-      console.log('top');
+
       break;
     case 'bottom':
       mapLayout = styles.bottom;
-      console.log('bottom');
+
       break;
     case 'left':
       mapLayout = styles.left;
-      console.log('left');
+
       break;
     case 'right':
       mapLayout = styles.right;
-      console.log('right');
+
       break;
     case 'none':
       mapLayout = styles.none;
-      console.log('none');
+
       break;
   }
 

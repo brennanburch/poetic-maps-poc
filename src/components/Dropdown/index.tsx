@@ -18,8 +18,9 @@ const Dropdown = ({
   className,
   // primaryColor = '',
   secondaryColor = '',
+  dropdownOpen,
 }: Props) => {
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(!!dropdownOpen);
   const handleToggle = () => {
     setToggle(!toggle);
   };

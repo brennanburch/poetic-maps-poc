@@ -30,19 +30,20 @@ const MapIndicator = ({
 
   return (
     <span
-      onClick={() => setSelectedPOI(slug)}
       className={[
         styles.mapIndicator,
         selected ? styles.selected : null,
         'map-indicator-content',
       ].join(' ')}
     >
-      <h2 className="map-indicator-heading">{name}</h2>
-      <img
-        className={[styles.indicatorImage, 'map-indicator-image'].join(' ')}
-        src={url}
-        alt={alt ? alt : undefined}
-      />
+      <span onClick={() => setSelectedPOI(slug)}>
+        <h2 className="map-indicator-heading">{name}</h2>
+        <img
+          className={[styles.indicatorImage, 'map-indicator-image'].join(' ')}
+          src={url}
+          alt={alt ? alt : undefined}
+        />
+      </span>
       {modalToggle ? (
         <MapIndicatorModal {...{ selected, setSelectedPOI, poi, primaryColor, secondaryColor }} />
       ) : null}

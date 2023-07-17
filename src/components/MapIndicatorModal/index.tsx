@@ -29,8 +29,8 @@ const MapIndicatorModal = ({
 }: Props) => {
   const closeModal = () => {
     setSelectedPOI(undefined);
-    console.log('click');
   };
+
   return (
     <>
       <div
@@ -45,10 +45,7 @@ const MapIndicatorModal = ({
           className={styles.closeIcon}
           size="30px"
           style={{ backgroundColor: primaryColor, color: secondaryColor }}
-          onClick={() => {
-            closeModal;
-          }}
-
+          onClick={closeModal}
           // Deselect the selected POI
         />
         {modalImages && modalImages.length > 0 ? (

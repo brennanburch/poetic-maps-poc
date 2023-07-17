@@ -50,6 +50,26 @@
 }
 
 @container (width <= 490px) {
+  .dropdown {
+    position: relative;
+    justify-content:center;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    height: fit-content;
+    margin: 1em;
+    width:300px;
+  }
+  
+  
+  .dropdownHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    cursor: pointer;
+  }
   .items {
     grid-template-columns: 1fr;
   }

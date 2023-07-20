@@ -149,14 +149,19 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
             )
           ) : null}
           <div className={styles.menu}>
-            <ul>
+            <ul
+              className={
+                isMobile && mobileOpen
+                  ? styles.mobileDropdown
+                  : isMobile && !mobileOpen
+                  ? styles.mobileDropdownClosed
+                  : undefined
+              }
+            >
               {mapData.poi.map(
                 ({ name, slug, 'indicator-image-sider': indicatorImageSider, address }) => {
                   return (
                     <MenuItem
-                      handleCloseMobile={function (): void {
-                        throw new Error('Function not implemented.');
-                      }}
                       key={slug}
                       {...{
                         name,
@@ -165,6 +170,7 @@ const Menu = ({ mapData, selectedPOI, setSelectedPOI }: Props) => {
                         setSelectedPOI,
                         slug,
                         address,
+                        handleCloseMobile,
                       }}
                     />
                   );

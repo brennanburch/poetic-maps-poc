@@ -5,6 +5,7 @@
   border: none;
   height: fit-content;
   margin: 1em;
+  width:auto;
 }
 
 
@@ -71,6 +72,6 @@
     cursor: pointer;
   }
   .items {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }

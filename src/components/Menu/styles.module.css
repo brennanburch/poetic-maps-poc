@@ -1,19 +1,21 @@
 .menu {
-  grid-column:  3/ span 1;
+  grid-column:  2/ span 1;
   container-type: inline-size;
   width:100vw;
   padding:1em;
 }
 .left{
-  grid-column: 3 / span 1;
+  grid-column: 2 / span 1;
   container-type: inline-size;
   direction:ltr;
+  
   
 
 }
 .right {
-   grid-column: 3 / span 1;
+   grid-column: 2 / span 1;
 container-type: inline-size;
+
 }
 .none {
 display:none;
@@ -28,28 +30,38 @@ display:none;
   width:100%;
   
 }
-
-ul{
+.top ul{
   display: grid;
-  grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr ;
-  height:fit-content;
-  width:auto;
-  justify-content:space-between;
-  
-}
-
-.right ul{
-  display: grid;
-  grid-template-columns: 1fr 1fr ;
+  grid-template-columns: 1fr 1fr 1fr;
   height:fit-content;
   width:fit-content;
   justify-content:space-between;
 
 }
 
+ul{
+  display: grid;
+  overflow:hidden;
+  grid-template-columns:  1fr ;
+  height:fit-content;
+  width:fit-content;
+  justify-content:space-between;
+  
+}
+
+
+
+.right ul{
+  display: grid;
+  grid-template-columns:  1fr;
+  height:fit-content;
+  width:fit-content;
+  justify-content:space-between;
+
+}
 .left ul{
   display: grid;
-  grid-template-columns:  1fr 1fr ;
+  grid-template-columns:  1fr ;
   height:fit-content;
   width:fit-content;
   justify-content:space-between;
@@ -64,6 +76,14 @@ ul{
   bottom:0;
   height:fit-content;
   width:100%;
+}
+.bottom ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height:fit-content;
+  width:fit-content;
+  justify-content:space-between;
+
 }
 
 .menuIcon {
@@ -85,7 +105,7 @@ ul{
 
 .mobileDropdown {
   animation: dropdownOpening ease-in 500ms;
-  max-height: 300px;
+  max-height: 600px;
 }
 
 .mobileDropdownClosed {
@@ -106,18 +126,29 @@ ul{
 }
 
 @container (width <= 990px) {
+  .mobileDropdown {
+    animation: dropdownOpening ease-in 500ms;
+    max-height: none;
+  }
+  
+  .mobileDropdownClosed {
+    max-height: 0px;
+    margin: 0 10px !important;
+    transition: all 200ms;
+    overflow: hidden;
+  }
   .menu {
     grid-column: 1 / span 4;
     overflow: hidden;
     padding-top: 0em;
-    
+    overflow: visible;
     display: column;
     align-items: top;
     justify-conter: center;
     cursor: pointer;
     z-index: 999;
     transition: height 0.4s ease;
-    position: absolute;
+    
     top: 0;
     left: 0;
     right: 0;
@@ -131,30 +162,138 @@ ul{
     background: transparent;
     margin: 20px;
   }
-
-  .button {
-    background: transparent;
-    width: 100%;
-    border: none;
-  }
- 
   .left{
-    grid-column: 2 / span 1;
-    container-type: inline-size;
-    direction:ltr;
+    grid-column: 1 / span1 ;
+    overflow: hidden;
+    padding-top: 0em; 
+    display: column;
+    align-items: top;
+    justify-conter: center;
+    cursor: pointer;
+    z-index: 999;
+    transition: height 0.4s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: max-content;
   
   }
   .right {
-     grid-column: 1
-      / span 1;
-  container-type: inline-size;
-
+    grid-column: 1 / span1 ;
+    overflow: hidden;
+    padding-top: 0em;  
+    display: column;
+    align-items: top;
+    justify-conter: center;
+    cursor: pointer;
+    z-index: 999;
+    transition: height 0.4s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-height: max-content;
   }
-  ul{
+  .top{
     display: grid;
+  grid-template-columns: 1fr  ;
+    overflow: hidden;
+    padding-top: 0em;  
+    align-items: top;
+    justify-conter: center;
+    cursor: pointer;
+    z-index: 999;
+    transition: height 0.4s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: max-content;
+  }
+  .top ul{
+    grid-column: 1 / span1 ;
+    display: grid;
+    overflow:hidden;
+    grid-template-columns:  1fr 1fr  ;
+    height:fit-content;
+    width:fit-content;
+    justify-content:space-between;
+  }
+  .bottom{
+    
+    overflow: hidden;
+    padding-top: 0em;
+    display: grid;
+  grid-template-columns: 1fr  ;
+    align-items: top;
+    justify-conter: center;
+    cursor: pointer;
+    z-index: 999;
+    transition: height 0.4s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: max-content;
+  }
+  .bottom ul{
+    grid-column: 1 / span 1 ;
+    display: column;
+    overflow:hidden;
+    grid-template-columns:  1fr 1fr  ;
+    height:fit-content;
+    width:fit-content;
+    justify-content:space-between;
+   
+    
+  }
+  .left ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    height:fit-content;
+    width:fit-content;
+    justify-content:space-between;
+    
+  }
+  .right ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    height:fit-content;
+    width:fit-content;
+    justify-content:space-between;
+    
+  }
+
+ 
+  
+}
+@container (width <= 500px) {
+  .top ul{
+    grid-column: 1 / span1 ;
+    display: grid;
+    overflow:hidden;
     grid-template-columns:  1fr  ;
     height:fit-content;
-    width:100%;
+    width:fit-content;
+    justify-content:space-between;
+  }
+  .bottom ul{
+    grid-column: 1 / span 1 ;
+    display: column;
+    overflow:hidden;
+    grid-template-columns:  1fr  ;
+    height:fit-content;
+    width:fit-content;
+    justify-content:space-between;
+   
+    
+  }
+  .left ul{
+    display: grid;
+    grid-template-columns:  1fr ;
+    height:fit-content;
+    width:fit-content;
     justify-content:space-between;
     
   }
@@ -162,17 +301,9 @@ ul{
     display: grid;
     grid-template-columns: 1fr ;
     height:fit-content;
-    width:100%;
-    justify-content:space-between;
-  
-  }
-  
-  .left ul{
-    display: grid;
-    grid-template-columns:  1fr ;
-    height:fit-content;
     width:fit-content;
     justify-content:space-between;
-  
+    
   }
+
 }

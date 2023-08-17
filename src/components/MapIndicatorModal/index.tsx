@@ -24,6 +24,7 @@ const MapIndicatorModal = ({
     'cta-link': ctaLink,
     'cta-text': ctaText,
   },
+
   primaryColor,
   secondaryColor,
 }: Props) => {

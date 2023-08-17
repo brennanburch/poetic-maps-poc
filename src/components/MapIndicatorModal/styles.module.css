@@ -4,6 +4,7 @@
   align-items: center;
   padding: 4px;
 }
+
 .mapIndicatorModal {
   position: absolute;
   display: none;
@@ -52,6 +53,7 @@
   color: inherit;
 }
 
+
 @keyframes popup {
   0% {
     display: none;
@@ -78,14 +80,17 @@
   height: 60%;
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
+  
 }
 
 .carouselImageWrapper {
   height: 12em;
+ 
 }
 
 .carouselImageWrapper img {
   width: auto;
+  
 }
 
 .textWrapper {
@@ -223,11 +228,12 @@
     height: 30%;
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
-    display: none;
+    display: flex;
   }
 
   .carouselImageWrapper {
     height: 10em;
+    display:flex;
   }
 
   .carouselImageWrapper img {

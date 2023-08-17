@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction } from 'react';
-
 import { MapIndicatorModal } from '../';
 import { POI } from '../LogicController';
 
